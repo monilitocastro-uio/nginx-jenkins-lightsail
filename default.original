@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name example.com www.example.com;
+
+    root /var/www/html;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+# Redirects and additional configurations could be added here if needed
