@@ -6,7 +6,7 @@ You will want this if you want to have your Lightsail give you a secure Jenkins 
 This assumes that you have inserted the script from the `jenkins-in-lightsail.sh`, `nginx-in-lightsail.sh` shell scripts as an immediate script to run, or are starting from an AWS Lightsail instance immediately after creation.
 
 ## Setting up Domain
-You should first set up your jenkins.domain.com, www.domain.com, domain.com DNS settings (where `domain.com` is your domain). Change IP Value for your static ip.
+You should first set up your jenkins.example.com, www.example.com, example.com DNS settings (where `example.com` is your domain). Change IP Value for your static ip.
 ```
 Type	    Host        IP Value            TTL
 ------      ------      ----------          -----
