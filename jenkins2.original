@@ -1,0 +1,44 @@
+# applications, such as Drupal or Wordpress. These applications will be made
+# available underneath a path with that package name, such as /drupal8.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+# Default server configuration
+#
+
+
+
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+server {
+    listen 80;
+    server_name jenkins.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+
+    listen 443 ssl;
+    server_name jenkins.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/jenkins.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/jenkins.example.com/privkey.pem;
+
+
+    location / {
+        proxy_set_header        Host $host;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto $scheme;
+
+        # fix proxy error message
+        proxy_pass      http://localhost:8080;
+        proxy_read_timeout      90;
+
+        proxy_redirect      http://localhost:8080 https://jenkins.example.com;
+    }
+}
