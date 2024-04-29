@@ -1,5 +1,8 @@
-# Description
+# Value Proposition
 You will want this if you want to have your Lightsail give you a secure Jenkins instance on your domain name out of the box.
+
+# Description
+This will set up your Ubuntu instance with a Jenkins server and www server accessible from DNS names. Requires certbot for letsencrypt purposes, java sdk for jenkins purposes.
 
 # Getting Started
 
